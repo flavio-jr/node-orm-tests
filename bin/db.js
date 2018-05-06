@@ -6,12 +6,20 @@ require('dotenv').config()
  */
 require('../src/Models')
   .then(models => {
+    const length = models.length
+    let modelsSynced = 0
+
     models.forEach(model => {
       model.sync()
-    })
+        .then(() => {
+          modelsSynced++
 
-    console.log('Models synchronized with the database')
-    process.exit(0)
+          if (modelsSynced === length) {
+            console.log('Models synchronized with the database')
+            process.exit(0)
+          }
+        })
+    })
   })
   .catch(err => {
     console.error(err)

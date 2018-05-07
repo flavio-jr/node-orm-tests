@@ -7,5 +7,8 @@ module.exports = connection.define('user', {
   },
   password: {
     type: Sequelize.STRING
+  },
+  name: {
+    type: Sequelize.STRING
   }
 })

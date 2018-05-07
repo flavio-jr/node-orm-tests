@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db-up": "node_modules/.bin/db-migrate up --config config/database.json -e dev --migrations-dir=./database/migrations"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^5.0.1",
-    "mysql2": "^1.5.3",
+    "knex": "^0.14.6",
     "pg": "^7.4.2",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.37.6"
